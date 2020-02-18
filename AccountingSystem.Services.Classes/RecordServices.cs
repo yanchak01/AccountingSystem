@@ -3,6 +3,7 @@ using AccountingSystem.Domain.Interfaces;
 using AccountingSystem.Services.Interfaces;
 using AccountingSystem.ViewModels.EntitieViewModels;
 using AutoMapper;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace AccountingSystem.Services.Classes
@@ -22,6 +23,12 @@ namespace AccountingSystem.Services.Classes
             var entity = _mapper.Map<RecordsViewModel, Record>(record);
             await _recordRepository.Create(entity);
             await _recordRepository.Save();
+        }
+
+        public async Task<IEnumerable<RecordsViewModel>> RecordsList()
+        {
+            var records = await _recordRepository.GetRecordList();
+            return _mapper.Map<IEnumerable<Record>, IEnumerable<RecordsViewModel>>(records);
         }
     }
 }

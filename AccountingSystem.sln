@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountingSystem.ViewModels
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountingSystem.Services.Classes", "AccountingSystem.Services.Classes\AccountingSystem.Services.Classes.csproj", "{61ADDB68-1A61-4BAF-BD37-C42503000BDD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountingSystem.Services.Utillities", "AccountingSystem.Services.Utillities\AccountingSystem.Services.Utillities.csproj", "{211F0464-0687-4D2E-973E-7D1D08A73545}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,10 @@ Global
 		{61ADDB68-1A61-4BAF-BD37-C42503000BDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61ADDB68-1A61-4BAF-BD37-C42503000BDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61ADDB68-1A61-4BAF-BD37-C42503000BDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{211F0464-0687-4D2E-973E-7D1D08A73545}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{211F0464-0687-4D2E-973E-7D1D08A73545}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{211F0464-0687-4D2E-973E-7D1D08A73545}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{211F0464-0687-4D2E-973E-7D1D08A73545}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -70,6 +76,7 @@ Global
 		{A53CDA1F-4187-4A3E-885D-F010F34D7466} = {706C8837-81DC-4C9E-AD0D-3D24A9BA0FCE}
 		{D5C3E4F2-D0DA-4E34-A96F-8F691BDA5B20} = {5DCEB949-66CB-4F7D-9E74-D0054722D52B}
 		{61ADDB68-1A61-4BAF-BD37-C42503000BDD} = {6126CB3E-D0B0-4F4C-B010-BFD4F9D1A443}
+		{211F0464-0687-4D2E-973E-7D1D08A73545} = {6126CB3E-D0B0-4F4C-B010-BFD4F9D1A443}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {98900D6C-61EF-49BA-A082-7A7FAE8C55F2}

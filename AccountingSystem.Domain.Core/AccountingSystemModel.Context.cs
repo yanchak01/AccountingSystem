@@ -16,7 +16,7 @@ namespace AccountingSystem.Domain.Core
     public partial class AccountingSystemDbEntities : DbContext
     {
         public AccountingSystemDbEntities()
-            : base("name=AccountingSystemDbEntities")
+            : base("AccountingSystemDbEntities")
         {
         }
     
