@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IJsonLoadServices.cs" />
     <Compile Include="IRecordServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

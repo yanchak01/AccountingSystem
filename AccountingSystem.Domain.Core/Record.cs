@@ -15,8 +15,8 @@ namespace AccountingSystem.Domain.Core
     public partial class Record
     {
         public int Id { get; set; }
-        public int UserId { get; set; }
         public string Tittle { get; set; }
-        public DateTime DateOfCreating { get; set; }
+        public int UserId { get; set; }
+        public System.DateTime DateOfCreating { get; set; }
     }
 }

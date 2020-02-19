@@ -13,7 +13,6 @@ namespace AccountingSystem.ViewModels.EntitieViewModels
         
         public string Tittle { get; set; }
 
-        
         public DateTime DateOfCreating { get; set; } = DateTime.Now;
     }
 }

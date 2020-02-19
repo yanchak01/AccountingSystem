@@ -50,53 +50,51 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountingSystemModel.Context.cs">
+    <Compile Include="AccountingSystemDataBase.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AccountingSystemModel.Context.tt</DependentUpon>
+      <DependentUpon>AccountingSystemDataBase.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="AccountingSystemModel.cs">
+    <Compile Include="AccountingSystemDataBase.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AccountingSystemModel.tt</DependentUpon>
+      <DependentUpon>AccountingSystemDataBase.tt</DependentUpon>
     </Compile>
-    <Compile Include="AccountingSystemModel.Designer.cs">
+    <Compile Include="AccountingSystemDataBase.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AccountingSystemModel.edmx</DependentUpon>
+      <DependentUpon>AccountingSystemDataBase.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Record.cs">
-      <DependentUpon>AccountingSystemModel.tt</DependentUpon>
+      <DependentUpon>AccountingSystemDataBase.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="AccountingSystemModel.edmx">
+    <EntityDeploy Include="AccountingSystemDataBase.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>AccountingSystemModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>AccountingSystemDataBase.Designer.cs</LastGenOutput>
     </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="AccountingSystemModel.edmx.diagram">
-      <DependentUpon>AccountingSystemModel.edmx</DependentUpon>
+    <None Include="AccountingSystemDataBase.edmx.diagram">
+      <DependentUpon>AccountingSystemDataBase.edmx</DependentUpon>
     </None>
     <None Include="App.Config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AccountingSystemModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>AccountingSystemModel.Context.cs</LastGenOutput>
-      <DependentUpon>AccountingSystemModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="AccountingSystemModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AccountingSystemModel.edmx</DependentUpon>
-      <LastGenOutput>AccountingSystemModel.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="AccountingSystemDataBase.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AccountingSystemDataBase.edmx</DependentUpon>
+      <LastGenOutput>AccountingSystemDataBase.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="AccountingSystemDataBase.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AccountingSystemDataBase.edmx</DependentUpon>
+      <LastGenOutput>AccountingSystemDataBase.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -10,16 +10,16 @@ namespace AccountingSystem.Infrastructure.Data
 {
     public class RecordRepository : IRecordRepository
     {
-        private readonly AccountingSystemDbEntities _context;
+        private readonly AccountingSystemDbEntities1 _context;
         
-        public RecordRepository(AccountingSystemDbEntities context)
+        public RecordRepository(AccountingSystemDbEntities1 context)
         {
             _context = context;
         }
 
         public async Task Create(Record item)
         {
-           await Task.Run(()=> _context.Records.Add(item));
+            await Task.Run(()=>_context.Records.Add(item));
         }
 
         public void Delete(Record item)
@@ -44,38 +44,12 @@ namespace AccountingSystem.Infrastructure.Data
 
         public void Update(Record item)
         {
-            try
-            {
-               _context.Records.Attach(item);
-            }
-            catch { }
-            finally
-            {
-                var customer = _context.Records
-               .Where(r => r.Id == item.Id)
-               .FirstOrDefault();
-
-                customer = item;
-            }
+            var record = _context.Records.Where(x => x.Id == item.Id).FirstOrDefault();
+            record.Tittle = item.Tittle;
+            record.UserId = item.UserId;
+            record.DateOfCreating = item.DateOfCreating;
+            _context.SaveChanges();
         }
 
-        #region Dispose
-        private bool isDisposed = false;
-
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!isDisposed && disposing)
-            {
-                _context.Dispose();
-            }
-            isDisposed = true;
-        }
-        #endregion
     }
 }

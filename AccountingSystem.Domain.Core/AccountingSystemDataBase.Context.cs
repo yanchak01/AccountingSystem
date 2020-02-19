@@ -13,10 +13,10 @@ namespace AccountingSystem.Domain.Core
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class AccountingSystemDbEntities : DbContext
+    public partial class AccountingSystemDbEntities1 : DbContext
     {
-        public AccountingSystemDbEntities()
-            : base("AccountingSystemDbEntities")
+        public AccountingSystemDbEntities1()
+            : base("AccountingSystemDbEntities1")
         {
         }
     

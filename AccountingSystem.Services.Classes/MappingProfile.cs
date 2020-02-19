@@ -9,6 +9,9 @@ namespace AccountingSystem.Services.Classes
         public MappingProfile()
         {
             CreateMap<Record, RecordsViewModel>().ReverseMap();
+            CreateMap<RecordJsonModel, RecordsViewModel>()
+                .ForMember(ce => ce.UserId, ci => ci.MapFrom(src => src.UserId))
+                .ForMember(ce => ce.Tittle, ci => ci.MapFrom(src => src.Title));
         }
     }
 }

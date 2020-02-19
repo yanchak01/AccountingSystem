@@ -9,9 +9,9 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tittle" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="UserId" Type="int" Nullable="false" />
-          <Property Name="Tittle" Type="nchar" MaxLength="100" Nullable="false" />
           <Property Name="DateOfCreating" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityContainer Name="AccountingSystemDbModelStoreContainer">
@@ -26,12 +26,12 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tittle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="UserId" Type="Int32" Nullable="false" />
-          <Property Name="Tittle" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="DateOfCreating" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
-        <EntityContainer Name="AccountingSystemDbEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="AccountingSystemDbEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Records" EntityType="Self.Record" />
         </EntityContainer>
       </Schema>
@@ -39,13 +39,13 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="AccountingSystemDbModelStoreContainer" CdmEntityContainer="AccountingSystemDbEntities">
+        <EntityContainerMapping StorageEntityContainer="AccountingSystemDbModelStoreContainer" CdmEntityContainer="AccountingSystemDbEntities1">
           <EntitySetMapping Name="Records">
             <EntityTypeMapping TypeName="AccountingSystemDbModel.Record">
               <MappingFragment StoreEntitySet="Records">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="Tittle" ColumnName="Tittle" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="DateOfCreating" ColumnName="DateOfCreating" />
               </MappingFragment>
             </EntityTypeMapping>

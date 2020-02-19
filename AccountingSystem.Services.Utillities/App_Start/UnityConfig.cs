@@ -1,6 +1,14 @@
+using AccountingSystem.Domain.Core;
+using AccountingSystem.Domain.Interfaces;
+using AccountingSystem.Infrastructure.Data;
+using AccountingSystem.Services.Classes;
+using AccountingSystem.Services.Interfaces;
+using AutoMapper;
 using System;
-
+using System.Data.Entity;
 using Unity;
+using Unity.Injection;
+using Unity.Lifetime;
 
 namespace AccountingSystem.Services.Utillities
 {
@@ -36,12 +44,18 @@ namespace AccountingSystem.Services.Utillities
         /// </remarks>
         public static void RegisterTypes(IUnityContainer container)
         {
-            // NOTE: To load from web.config uncomment the line below.
-            // Make sure to add a Unity.Configuration to the using statements.
-            // container.LoadConfiguration();
+            container.RegisterType<IRecordRepository, RecordRepository>();
+            container.RegisterType<IRecordServices, RecordServices>();
+            container.RegisterType<DbContext, AccountingSystemDbEntities1>(new HierarchicalLifetimeManager(), new InjectionConstructor());
+            container.RegisterType<IJsonLoadServices, JsonLoadServices>();
 
-            // TODO: Register your type's mappings here.
-            // container.RegisterType<IProductRepository, ProductRepository>();
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.AddProfile(new MappingProfile());
+            });
+            container.RegisterInstance<IMapper>(config.CreateMapper());
+
+            //DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace AccountingSystem.Domain.Interfaces
 {
-    public interface IBaseRepository<T>:IDisposable where T:class
+    public interface IBaseRepository<T> where T:class
     {
         Task<IEnumerable<T>> GetRecordList();
         Task<T> GetRecord(int id);

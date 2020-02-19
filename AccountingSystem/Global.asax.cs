@@ -17,7 +17,8 @@ namespace AccountingSystem
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            UnityConfigurations.RegisterComponent();
+            //UnityConfigurations.RegisterComponent();
+            UnityMvcActivator.Start();
         }
     }
 }
