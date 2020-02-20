@@ -46,7 +46,7 @@ namespace AccountingSystem.Services.Utillities
         {
             container.RegisterType<IRecordRepository, RecordRepository>();
             container.RegisterType<IRecordServices, RecordServices>();
-            container.RegisterType<DbContext, AccountingSystemDbEntities1>(new HierarchicalLifetimeManager(), new InjectionConstructor());
+            container.RegisterType<DbContext, AccountingSystemDbEntities>(new HierarchicalLifetimeManager(), new InjectionConstructor());
             container.RegisterType<IJsonLoadServices, JsonLoadServices>();
             container.RegisterType<ICounterServices, CounterServices>();
             container.RegisterType<IJsonCreateServices, JsonCreateServices>();

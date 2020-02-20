@@ -13,20 +13,16 @@ namespace AccountingSystem.Domain.Core
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class AccountingSystemDbEntities1 : DbContext
+    public partial class AccountingSystemDbEntities : DbContext
     {
-        public AccountingSystemDbEntities1()
-            : base("AccountingSystemDbEntities1")
+        public AccountingSystemDbEntities()
+            : base("AccountingSystemDbEntities")
         {
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Record>().HasKey(en => en.Id);
-            modelBuilder.Entity<Record>().Property(dc => dc.DateOfCreating).IsRequired();
-            modelBuilder.Entity<Record>().Property(ui => ui.UserId).IsRequired();
-            modelBuilder.Entity<Record>().Property(rr => rr.Tittle).HasMaxLength(100);
-            modelBuilder.Entity<Record>().ToTable("Records");
+            throw new UnintentionalCodeFirstException();
         }
     
         public virtual DbSet<Record> Records { get; set; }

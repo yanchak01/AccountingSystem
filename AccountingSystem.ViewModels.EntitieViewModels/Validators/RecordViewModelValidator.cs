@@ -7,7 +7,7 @@ namespace AccountingSystem.ViewModels.EntitieViewModels.Validators
     {
         public RecordViewModelValidator()
         {
-            RuleFor(x => x.Tittle).NotNull().NotEmpty().MaximumLength(100).WithMessage("Required field");
+            RuleFor(x => x.Title).NotNull().NotEmpty().MaximumLength(100).WithMessage("Required field");
             RuleFor(x => x.UserId).NotNull().WithMessage("Required field");
             RuleFor(x => x.DateOfCreating).NotNull();
             RuleFor(x => x.UserId).Must(UserIdValid).WithMessage("Only digits and not 0");

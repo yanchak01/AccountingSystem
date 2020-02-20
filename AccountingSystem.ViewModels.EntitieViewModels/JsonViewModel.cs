@@ -14,7 +14,7 @@ namespace AccountingSystem.ViewModels.EntitieViewModels
         public int UserId { get; set; }
 
 
-        public string Tittle { get; set; }
+        public string Title { get; set; }
 
         public string DateOfCreating { get; set; }
     }

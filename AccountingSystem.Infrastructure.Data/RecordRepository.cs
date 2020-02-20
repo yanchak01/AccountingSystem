@@ -10,9 +10,9 @@ namespace AccountingSystem.Infrastructure.Data
 {
     public class RecordRepository : IRecordRepository
     {
-        private readonly AccountingSystemDbEntities1 _context;
+        private readonly AccountingSystemDbEntities _context;
         
-        public RecordRepository(AccountingSystemDbEntities1 context)
+        public RecordRepository(AccountingSystemDbEntities context)
         {
             _context = context;
         }
@@ -45,7 +45,7 @@ namespace AccountingSystem.Infrastructure.Data
         public void Update(Record item)
         {
             var record = _context.Records.Where(x => x.Id == item.Id).FirstOrDefault();
-            record.Tittle = item.Tittle;
+            record.Title = item.Title;
             record.UserId = item.UserId;
             record.DateOfCreating = item.DateOfCreating;
             _context.SaveChanges();
