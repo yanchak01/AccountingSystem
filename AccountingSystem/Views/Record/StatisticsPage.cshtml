@@ -1,0 +1,30 @@
+﻿@model AccountingSystem.ViewModels.EntitieViewModels.StatisticsViewModel
+
+@{
+    ViewBag.Title = "StatisticsPage";
+}
+
+<h2>StatisticsPage</h2>
+
+<div>
+    <h4>StatisticsViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+    </dl>
+</div>
+<table>
+    <tr>
+        <td>Date</td>
+        <td>Count of records</td>
+    </tr>
+    @foreach (var item in Model.Statistic)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Key)  </td>
+            <td>- @Html.DisplayFor(modelItem => item.Value) post(s)</td>
+        </tr>
+    }
+</table>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

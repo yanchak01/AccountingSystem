@@ -22,7 +22,7 @@ namespace AccountingSystem.Domain.Core
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            throw new UnintentionalCodeFirstException();
+            modelBuilder.Entity<Record>().ToTable("Records").HasKey(x => x.Id);
         }
     
         public virtual DbSet<Record> Records { get; set; }

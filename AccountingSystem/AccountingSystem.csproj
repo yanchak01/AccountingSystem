@@ -198,6 +198,7 @@
     <Content Include="Views\Record\Create.cshtml" />
     <Content Include="Views\Record\Edit.cshtml" />
     <Content Include="Views\Record\Delete.cshtml" />
+    <Content Include="Views\Record\StatisticsPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

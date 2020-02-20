@@ -14,13 +14,15 @@ namespace AccountingSystem.Controllers
     {
         private readonly IRecordServices _recordServices;
         private readonly IJsonLoadServices _jsonLoadServices;
+        private readonly ICounterServices _counterService;
 
-        public RecordController(IRecordServices recordServices, IJsonLoadServices jsonLoadServices)
+        public RecordController(IRecordServices recordServices, IJsonLoadServices jsonLoadServices, ICounterServices counterService)
         {
             _recordServices = recordServices;
             _jsonLoadServices = jsonLoadServices;
+            _counterService = counterService;
         }
-        // GET: Record
+       
         public async Task<ActionResult> Index()
         {
             var records = await _recordServices.RecordListByDate();
@@ -79,9 +81,15 @@ namespace AccountingSystem.Controllers
         
         public async Task<ActionResult> Load()
         {
-            //var arr = await _jsonLoadServices.Load();
             await _recordServices.CreateManyRecords(await _jsonLoadServices.Load());
             return RedirectToAction("Index");
         }
+
+        public async Task<ActionResult> StatisticsPage()
+        {
+            var records = await _recordServices.RecordListByDate();
+            var res = await _counterService.GetStatistic(records);
+            return View(res);
+        }  
     }
 }
