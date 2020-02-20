@@ -10,6 +10,7 @@ using System.Web.Mvc;
 
 namespace AccountingSystem.WebApi.Controllers
 {
+    [System.Web.Mvc.Route("[controller]/[action]")]
     public class RecordApiController : Controller
     {
         private readonly IJsonCreateServices _jsonCreateServices;
@@ -24,6 +25,8 @@ namespace AccountingSystem.WebApi.Controllers
         /// Return JSON just like a string
         /// </summary>
         /// <returns></returns>
+        [System.Web.Mvc.Route("RecordApi/ GetJsonLikeString)")]
+        [System.Web.Mvc.HttpGet]
         public async Task<string> GetJsonLikeString()
         {
             var json = await _recordServices.RecordsList();
@@ -35,10 +38,11 @@ namespace AccountingSystem.WebApi.Controllers
         /// </summary>
         /// <returns></returns>
         //Return JSON with DateOfCreating in ticks {dateofcreating = 1582152030323}
+        [System.Web.Mvc.Route("RecordApi/Get)")]
+        [System.Web.Mvc.HttpGet]
         public async Task<JsonResult> Get()
         {
-            var json = await _recordServices.RecordsList();
-            return Json(json, JsonRequestBehavior.AllowGet);
+            return Json(await _jsonCreateServices.CreateValidJson(await _recordServices.RecordsList()), JsonRequestBehavior.AllowGet);
         }
 
         /// <summary>
@@ -46,6 +50,8 @@ namespace AccountingSystem.WebApi.Controllers
         /// </summary>
         /// <returns></returns>
         //Return JSON with the slashes {\"Id\":29,\"UserId\":1,\"Tittle\":\"qui est esse\",\"DateOfCreating\":\"2020-02-20T00:40:30.323\"}
+        [System.Web.Mvc.Route("RecordApi/GetSpecifyJson)")]
+        [System.Web.Mvc.HttpGet]
         public async Task<JsonResult> GetSpecifyJson()
         {
             return Json(await _jsonCreateServices.CreateJsonAll(await _recordServices.RecordsList()), JsonRequestBehavior.AllowGet);

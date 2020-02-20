@@ -19,6 +19,7 @@ namespace AccountingSystem
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             //UnityConfigurations.RegisterComponent();
             UnityMvcActivator.Start();
+            ModelValidatorProviders.Providers.Clear();
         }
     }
 }

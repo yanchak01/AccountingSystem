@@ -22,7 +22,11 @@ namespace AccountingSystem.Domain.Core
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Record>().ToTable("Records").HasKey(x => x.Id);
+            modelBuilder.Entity<Record>().HasKey(en => en.Id);
+            modelBuilder.Entity<Record>().Property(dc => dc.DateOfCreating).IsRequired();
+            modelBuilder.Entity<Record>().Property(ui => ui.UserId).IsRequired();
+            modelBuilder.Entity<Record>().Property(rr => rr.Tittle).HasMaxLength(100);
+            modelBuilder.Entity<Record>().ToTable("Records");
         }
     
         public virtual DbSet<Record> Records { get; set; }

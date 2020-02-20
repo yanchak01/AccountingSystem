@@ -1,5 +1,6 @@
 ﻿using AccountingSystem.Services.Interfaces;
 using AccountingSystem.ViewModels.EntitieViewModels;
+using AutoMapper;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,11 @@ namespace AccountingSystem.Services.Classes
 {
     public class JsonCreateServices : IJsonCreateServices
     {
+        private readonly IMapper _mapper;
+        public JsonCreateServices(IMapper mapper)
+        {
+            _mapper = mapper;
+        }
         public async Task<string> CreateJsonAll(IEnumerable<RecordsViewModel> records)
         {
             string jsonResult = await Task.Run(()=>JsonConvert.SerializeObject(records));
@@ -25,9 +31,10 @@ namespace AccountingSystem.Services.Classes
             return jsonResult;
         }
 
-        public async Task<JsonResult> CreateValidJson(IEnumerable<RecordsViewModel> records)
+        public async Task<IEnumerable<JsonViewModel>> CreateValidJson(IEnumerable<RecordsViewModel> records)
         {
-            return new JsonResult() { Data = records, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            var json = await Task.Run(() => _mapper.Map<IEnumerable<RecordsViewModel>, IEnumerable<JsonViewModel>>(records));
+            return json;
         }
     }
 }

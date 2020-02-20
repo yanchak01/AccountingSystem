@@ -1,11 +1,8 @@
 ﻿using AccountingSystem.Services.Interfaces;
 using AccountingSystem.ViewModels.EntitieViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using AccountingSystem.ViewModels.EntitieViewModels.Validators;
+using FluentValidation.Results;
 using System.Threading.Tasks;
-using System.Web;
-using System.Web.ModelBinding;
 using System.Web.Mvc;
 
 namespace AccountingSystem.Controllers
@@ -38,8 +35,22 @@ namespace AccountingSystem.Controllers
         [HttpPost]
         public async Task<ActionResult> Create(RecordsViewModel record)
         {
-             await _recordServices.CreateRecord(record);
-            return RedirectToAction("Index");   
+            RecordViewModelValidator validations = new RecordViewModelValidator();
+            ValidationResult result = await validations.ValidateAsync(record);
+            if (result.IsValid)
+            {
+                await _recordServices.CreateRecord(record);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                foreach (var failure in result.Errors)
+                {
+                    ModelState.AddModelError(failure.PropertyName, failure.ErrorMessage);
+                }
+            }
+            return View(record);
+               
         }
 
         [HttpGet]
@@ -51,8 +62,21 @@ namespace AccountingSystem.Controllers
         [HttpPost]
         public async Task<ActionResult> Edit(RecordsViewModel record)
         {
-            await _recordServices.UpdateRecord(record);
-            return RedirectToAction("Index");
+            RecordViewModelValidator validations = new RecordViewModelValidator();
+            ValidationResult result = await validations.ValidateAsync(record);
+            if (result.IsValid)
+            {
+                await _recordServices.UpdateRecord(record);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                foreach (var failure in result.Errors)
+                {
+                    ModelState.AddModelError(failure.PropertyName, failure.ErrorMessage);
+                }
+            }
+            return View(record);
         }
 
         [HttpPost]

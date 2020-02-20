@@ -8,7 +8,7 @@ namespace AccountingSystem.Services.Interfaces
     public interface IJsonCreateServices
     {
         Task<string> CreateJsonAll(IEnumerable<RecordsViewModel> records);
-        Task<JsonResult> CreateValidJson(IEnumerable<RecordsViewModel> records);
+        Task<IEnumerable<JsonViewModel>> CreateValidJson(IEnumerable<RecordsViewModel> records);
         Task<string> CreateJsonId(RecordsViewModel record);
     }
 }
