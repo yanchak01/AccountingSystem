@@ -113,6 +113,8 @@ namespace AccountingSystem.Controllers
         {
             var records = await _recordServices.RecordListByDate();
             var res = await _counterService.GetStatistic(records);
+            ViewBag.NUM = res.Statistic.Values;
+            ViewBag.DATE = res.Statistic.Keys;
             return View(res);
         }  
     }
